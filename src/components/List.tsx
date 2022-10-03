@@ -1,7 +1,6 @@
 import { Item } from "./Item";
 import { useState, useEffect } from "react";
 
-//https://api.github.com/users/SamuelRicardoDS/repos
 
 export const repository = {
   name: "unform",
