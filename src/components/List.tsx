@@ -1,15 +1,33 @@
 import { Item } from "./Item";
+import { useState, useEffect } from "react";
+
+//https://api.github.com/users/SamuelRicardoDS/repos
+
+export const repository = {
+  name: "unform",
+  description: "Forms in React",
+  link: "http://github.com/unform/unform",
+}
 
 export const List = () => {
+
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/SamuelRicardoDS/repos')
+    .then(response => response.json())
+    .then(data => setRepos(data))
+  }, []);
+
   return (
     <div>
         <section>
             <h1>List</h1>
             <ul>
-               <Item name="item1"/>            
-               <Item name="item2"/>            
-               <Item name="item3"/>            
-               <Item name="item4"/>            
+               <Item repository={repository}/>            
+               <Item repository={repository}/>            
+               <Item repository={repository}/>            
+               <Item repository={repository}/>            
             </ul>
         </section>
     </div>
