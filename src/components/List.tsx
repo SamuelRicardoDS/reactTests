@@ -1,13 +1,6 @@
 import { Item } from "./Item";
 import { useState, useEffect } from "react";
 
-
-export const repository = {
-  name: "unform",
-  description: "Forms in React",
-  link: "http://github.com/unform/unform",
-}
-
 export const List = () => {
 
   const [repos, setRepos] = useState([]);
@@ -21,12 +14,11 @@ export const List = () => {
   return (
     <div>
         <section>
-            <h1>List</h1>
+            <h1>Repositories List</h1>
             <ul>
-               <Item repository={repository}/>            
-               <Item repository={repository}/>            
-               <Item repository={repository}/>            
-               <Item repository={repository}/>            
+              {repos.map(repository => {
+                return <Item key={Item.name} repository={repository} />
+              })}
             </ul>
         </section>
     </div>
