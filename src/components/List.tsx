@@ -1,9 +1,16 @@
 import { Item } from "./Item";
 import { useState, useEffect } from "react";
 
+interface Repository {
+  name: string;
+  description: string;
+  html_url: string;
+  language: string;
+}
+
 export const List = () => {
 
-  const [repos, setRepos] = useState([]);
+  const [repos, setRepos] = useState<Repository[]>([]);
 
   useEffect(() => {
     fetch('https://api.github.com/users/SamuelRicardoDS/repos')
@@ -17,7 +24,7 @@ export const List = () => {
             <h1>Repositories List</h1>
             <ul>
               {repos.map(repository => {
-                return <Item key={Item.name} repository={repository} />
+                return <Item key={repository.name} repository={repository} />
               })}
             </ul>
         </section>

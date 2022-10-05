@@ -1,6 +1,15 @@
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 
-export const Item = (props: { repository: {name: string, description: string, html_url: string, language: string}}) => {
+interface RepositoryProps {
+  repository: {
+    name: string;
+    description: string;
+    html_url: string;
+    language: string;
+  }
+}
+
+export const Item = (props: RepositoryProps) => {
   return (
     <div>
       <h1>{props.repository.name}</h1>
